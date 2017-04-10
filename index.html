@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+<script src="RadarChart.js"></script>
+<style>
+		svg rect:hover {
+            fill: deepskyblue;
+        }
+        svg rect {
+            fill: dodgerblue;
+        }
+        .d3-tip {
+            line-height: 1;
+            font-weight: bold;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border-radius: 2px;
+        }
+
+        .d3-tip.n:after {
+            margin: -1px 0 0 0;
+            top: 100%;
+            left: 0;
+        }
+
+        /* Creates a small triangle extender for the tooltip */
+		.d3-tip:after {
+		  box-sizing: border-box;
+		  display: inline;
+		  font-size: 10px;
+		  width: 100%;
+		  line-height: 1;
+		  color: rgba(0, 0, 0, 0.8);
+		  content: "\25BC";
+		  position: absolute;
+		  text-align: center;
+		}
+
+        .axis-bottom text {
+            transform: translateY(80px) rotate(-90deg)
+        }
+
+        .axis path,
+            .axis line {
+                fill: none;
+                stroke: black;
+                shape-rendering: crispEdges;
+            }
+            
+            .axis text {
+                font-family: Arial;
+                font-size: 15px;
+            }
+
+        #button_brk{
+                background-color:#ffffff;
+				-moz-border-radius:25px;
+				-webkit-border-radius:25px;
+				border-radius:25px;
+				border:2px solid #aeeac3;
+				display:inline-block;
+				cursor:pointer;
+				color:#aeeac3;
+				font-family:Arial;
+				font-size:17px;
+				padding:10px 25px;
+				text-decoration:none;
+               ;}
+        #button_lunch {
+                background-color:#ffffff;
+				-moz-border-radius:25px;
+				-webkit-border-radius:25px;
+				border-radius:25px;
+				border:2px solid#ff6600;
+				display:inline-block;
+				cursor:pointer;
+				color:#ff6600;
+				font-family:Arial;
+				font-size:17px;
+				padding:10px 25px;
+				text-decoration:none;
+               ;}
+        #button_dinner {
+                background-color:#ffffff;
+				-moz-border-radius:25px;
+				-webkit-border-radius:25px;
+				border-radius:25px;
+				border:2px solid #0099ff;
+				display:inline-block;
+				cursor:pointer;
+				color:#0099ff;
+				font-family:Arial;
+				font-size:17px;
+				padding:10px 25px;
+				text-decoration:none;
+               ;}
+
+        button:focus {outline:0;}
+
+        /* tooltip for hovering over elements */
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 2px;
+            margin: 40px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        } /* set the CSS */
+
+		body { font: 12px Arial;}
+
+		path { 
+		    stroke: steelblue;
+		    stroke-width: 2;
+		    fill: none;
+		}
+
+		.axis path,
+		.axis line {
+		    fill: none;
+		    stroke: grey;
+		    stroke-width: 1;
+		    shape-rendering: crispEdges;
+		}
+
+		
+		h1{
+			color: #111; 
+			font-family: 'Helvetica Neue', 
+			sans-serif; 
+			font-size: 75px; 
+			font-weight: bold; 
+			letter-spacing: -1px; 
+			line-height: 1; 
+			text-align: center;
+		}
+
+		h2 { color: #111; 
+			font-family: 'Open Sans', 
+			sans-serif; 
+			font-size: 30px; 
+			font-weight: 300; 
+			line-height: 32px; 
+			margin: 100px 0 50px; 
+			width: 750px;
+			text-align: left; 
+		}
+
+		h3 { color: #111; 
+			font-family: 'Open Sans', 
+			sans-serif; 
+			font-size: 20px; 
+			font-weight: 300; 
+			line-height: 32px; 
+			text-align: center;
+			width: 750px;
+			margin-left: 150px;			
+		}
+
+
+		p { color: #111; 
+			font-family: 'Helvetica Neue', 
+			sans-serif; font-size: 14px; 
+			line-height: 24px;  
+			text-align: left;
+			margin-left: 150px;
+			text-justify: 
+			inter-word; 
+		}
+
+		#chart {
+				  position: absolute;
+				  top: 50px;
+				  left: 100px;
+				}
+		.bar {
+		  fill: #3bcc6e;
+		}
+
+		.bar:hover {
+		  fill: gray;
+		}
+		.div2 {
+			overflow: hidden;
+				  margin: 0;
+				  font-size: 14px;
+				  font-family: "Helvetica Neue", Helvetica;
+		}
+		
+
+</style>
+<body style="background: linear-gradient(#66CCFF, #00CC66); ">
+<!-- !PAGE CONTENT! -->
+<div id ="main" style="background:#FFFFFF; width:1000px;  margin:0 auto; border-radius: 20px; margin-top: 50px; margin-bottom: 50px;
+						padding-bottom: 50px; padding-top: 50px;">
+
+	<!-- Header -->
+	 <h1>  EatRight.  </h1>
+	 <h3> Hello Mike! In this page you will be able to see the your progress. The intent of the page is to help you understand what's going on with your meals, how well you are following your plan and why you are skipping it (if that's your case). </h3>
+
+	 <h2 style="margin-left: 150px"> Mmm... What have I eaten?</h3>
+	 <div id='v4' style="margin-left: 300px; height: 500px; width: 650px;"></div>
+
+	 <h2 style="margin-left: 150px"> Deviation from stablished meal times.</h2>
+	    <button id="button_brk" style="margin-left: 150px">Breakfast</button>
+	    <button id="button_lunch">Lunch</button>
+	    <button id="button_dinner">Dinner</button>
+	    <div id='v1' style="margin-left: 150px; height: 500px; width: 650px;"></div>
+
+	<h2 style="margin-left: 150px"> Mood compared with ammount of people you have eaten with.</h3>
+	<div id='v2' style="margin-left: 150px; height: 500px; width: 650px;"></div>
+
+	<h2 style="margin-left: 150px"> Averaged mood compared with devation from goal time.</h3>
+	<div id='v3' style="margin-left: 150px; height: 500px; width: 650px;"></div>
+	    
+
+	<!-- load the d3.js library -->    
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+	<script src="cloud-layout.js"></script>
+
+	<script src='lines.js'></script>
+	
+	<script type="text/javascript" src="script_spider.js"></script>
+
+	<script src='mood-dev.js'></script>
+
+</div>
+</body>
+</html>
