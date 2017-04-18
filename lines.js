@@ -4,7 +4,8 @@ var margin = {top: 30, right: 0, bottom: 30, left: 0},
     height = 500 - margin.top - margin.bottom;
 var padding = 20;
 // Parse the date / time
-	var parseDate = d3.time.format("%d-%b-%y").parse;
+var parseDate = d3.time.format("%d-%b-%y").parse;
+
 
 
 // Get the data
@@ -28,8 +29,10 @@ d3.csv("Deviation.csv", function(error, data) {
 	// Define the line
 	var valueline = d3.svg.line()
 		.interpolate('cardinal')
+        .defined(function(d) { return !isNaN(d.breakfast); })
 	    .x(function(d) { return x(d.date); })
 	    .y(function(d) { return y(d.breakfast); });
+
 	    
 	// Adds the svg canvas
 	var svg = d3.select("#v1")
@@ -73,6 +76,7 @@ d3.csv("Deviation.csv", function(error, data) {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("Deviation in minutes");
+
   
 
 /////////////Swith to LUNCH data//////////////////////////////////////////////
@@ -91,6 +95,7 @@ d3.csv("Deviation.csv", function(error, data) {
     // Define the line
 	var valueline = d3.svg.line()
 		.interpolate('cardinal')
+        .defined(function(d) { return !isNaN(d.lunch); })
 	    .x(function(d) { return x(d.date); })
 	    .y(function(d) { return y(d.lunch); });
 
@@ -129,6 +134,7 @@ d3.csv("Deviation.csv", function(error, data) {
 	 // Define the line
 	var valueline = d3.svg.line()
 		.interpolate('cardinal')
+        .defined(function(d) { return !isNaN(d.dinner); })
 	    .x(function(d) { return x(d.date); })
 	    .y(function(d) { return y(d.dinner); });
 
@@ -165,6 +171,7 @@ d3.csv("Deviation.csv", function(error, data) {
     // Define the line
 	var valueline = d3.svg.line()
 		.interpolate('cardinal')
+        .defined(function(d) { return !isNaN(d.breakfast); })
 	    .x(function(d) { return x(d.date); })
 	    .y(function(d) { return y(d.breakfast); });
 

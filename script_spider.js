@@ -56,11 +56,11 @@ var svg = d3.select("#v2")
 var text = svg.append("text")
 	.attr("class", "title")
 	.attr('transform', 'translate(90,0)') 
-	.attr("x", w - 70)
+	.attr("x", w - 80)
 	.attr("y", 10)
 	.attr("font-size", "12px")
 	.attr("fill", "#404040")
-	.text("Average mood in each meal - company");
+	.text("Average mood (from 0 to 100% happiness) - company");
 		
 //Initiate Legend	
 var legend = svg.append("g")
