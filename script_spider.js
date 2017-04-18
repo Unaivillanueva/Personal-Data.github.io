@@ -10,22 +10,22 @@ var LegendOptions = ['Breakfast','Lunch','Dinner'];
 var d = [
 		  [
 			{axis:"Alone",value:0.59},
-			{axis:"+3 People",value:0},
-			{axis:"3 People",value:0},
-			{axis:"2 People",value:0},
-			{axis:"1 Person",value:0},			
+			{axis:"+3 People",value:0.1},
+			{axis:"3 People",value:0.1},
+			{axis:"2 People",value:0.2},
+			{axis:"1 Person",value:0.5},			
 		  ],[
 			{axis:"Alone",value:0.8},
-			{axis:"+3 People",value:0},
-			{axis:"3 People",value:0},
+			{axis:"+3 People",value:0.6},
+			{axis:"3 People",value:0.2},
 			{axis:"2 People",value:0.64},
 			{axis:"1 Person",value:0.74},
 		  ],[
-			{axis:"Alone",value:0.7},
+			{axis:"Alone",value:0.6},
 			{axis:"+3 People",value:0.8},
-			{axis:"3 People",value:0.74},
+			{axis:"3 People",value:0.7},
 			{axis:"2 People",value:0.69},
-			{axis:"1 Person",value:0.78},
+			{axis:"1 Person",value:0.7},
 		  ]
 		];
 

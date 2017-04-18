@@ -20,7 +20,7 @@ d3.csv("Deviation.csv", function(error, data) {
 
 	// Define the axes
 	var xAxis = d3.svg.axis().scale(x)
-	    .orient("bottom").ticks(8);
+	    .orient("bottom").ticks(10);
 
 	var yAxis = d3.svg.axis().scale(y)
 	    .orient("left").ticks(10);
@@ -55,7 +55,13 @@ d3.csv("Deviation.csv", function(error, data) {
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + y(0) + ")")
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(45)")
+        .style("text-anchor", "start");
 
     // Add the Y Axis
     svg.append("g")
