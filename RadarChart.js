@@ -12,8 +12,8 @@ var RadarChart = {
   draw: function(id, d, options){
   var cfg = {
 	 radius: 5,
-	 w: 600,
-	 h: 600,
+	 w: 350,
+	 h: 350,
 	 factor: 1,
 	 factorLegend: 1,
 	 levels: 3,
@@ -44,10 +44,12 @@ var RadarChart = {
 	
 	var g = d3.select(id)
 			.append("svg")
-			.attr("width", cfg.w+cfg.ExtraWidthX)
-			.attr("height", cfg.h+cfg.ExtraWidthY)
+			.attr("width", '100%')
+    		.attr("height", '100%')
+    		.attr('viewBox','0 0 '+Math.max(w,h)+' '+Math.max(w,h))
+    		.attr('preserveAspectRatio','xMinYMin')
 			.append("g")
-			.attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
+			.attr("transform", "translate(" + Math.min(w,h) / 200 + "," + Math.min(w,h) / 5 + ")");
 			;
 
 	var tooltip;
@@ -108,11 +110,11 @@ var RadarChart = {
 		.attr("class", "legend")
 		.text(function(d){return d})
 		.style("font-family", "sans-serif")
-		.style("font-size", "11px")
-		.attr("text-anchor", "middle")
-		.attr("dy", "1.5em")
-		.attr("transform", function(d, i){return "translate(0, -10)"})
-		.attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
+		.style("font-size", "10px")
+		.attr("text-anchor", "end")
+		.attr("dy", ".5em")
+		.attr("transform", function(d, i){return "translate(10, -10)"})
+		.attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))+1*Math.sin(i*cfg.radians/total);})
 		.attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
 
  

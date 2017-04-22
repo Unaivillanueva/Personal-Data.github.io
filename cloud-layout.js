@@ -1,9 +1,9 @@
 var fill = d3.scale.category20();
 
 var cityData = [], 
-    w = 650,
+    w = 350,
     padding = 0, 
-    h = 500;
+    h = 350;
 
 d3.csv("words.csv", function(data) {
     // build the list of city names
@@ -25,10 +25,12 @@ d3.csv("words.csv", function(data) {
 function draw(words) {
 d3.select("#v4").append("svg")
     .classed("svg-container", true) //container class to make it responsive
-    .attr("width", w)
-    .attr("height", h)
+    .attr("width", '90%')
+    .attr("height", '100%')
+    .attr('viewBox','0 0 '+Math.max(width,height)+' '+Math.min(width,height))
+    .attr('preserveAspectRatio','xMinYMin')
     .append("g")
-    .attr("transform", "translate(250,250)")
+    .attr("transform", "translate(" + Math.min(width,height)/1.5 + "," + Math.min(width,height)/1.2 + ")")
     .selectAll("text")
     .data(words)
     .enter().append("text")
@@ -42,14 +44,14 @@ d3.select("#v4").append("svg")
     .text(function(d) { return d.text; })
     //responsive SVG needs these 2 attributes and no width and height attr
    .attr("preserveAspectRatio", "xMinYMin meet")
-   .attr("viewBox", "0 0 600 400")
+   .attr("viewBox", "0 0 350 350")
    //class to make it responsive
    .classed("svg-content-responsive", true); 
 }           
 
 (function(exports) {
   function cloud() {
-    var size = [650, 500],
+    var size = [350, 350],
         text = cloudText,
         font = cloudFont,
         fontSize = cloudFontSize,

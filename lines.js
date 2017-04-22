@@ -1,7 +1,7 @@
 // Set the dimensions of the canvas / graph
 var margin = {top: 30, right: 0, bottom: 30, left: 0},
-    width = 650 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 365 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
 var padding = 20;
 // Parse the date / time
 var parseDate = d3.time.format("%d-%b-%y").parse;
@@ -26,6 +26,7 @@ d3.csv("Deviation.csv", function(error, data) {
 	var yAxis = d3.svg.axis().scale(y)
 	    .orient("left").ticks(10);
 
+
 	// Define the line
 	var valueline = d3.svg.line()
 		.interpolate('cardinal')
@@ -39,10 +40,10 @@ d3.csv("Deviation.csv", function(error, data) {
 	    .append("svg")
 	    .attr("width", '100%')
 	    .attr("height", '100%')
-        .attr('viewBox','0 0 '+Math.min(width,height)+' '+Math.min(width,height))
+        .attr('viewBox','0 0 '+Math.max(width,height)+' '+Math.min(width,height))
         .attr('preserveAspectRatio','xMinYMin')
 	    .append("g")
-	    .attr("transform", "translate(" + Math.min(width,height) /13 + "," + Math.min(width,height) / 14 + ")");
+	    .attr("transform", "translate(" + Math.min(width,height) /11 + "," + Math.min(width,height) / 14 + ")");
 
 
     // Scale the range of the data
@@ -65,18 +66,21 @@ d3.csv("Deviation.csv", function(error, data) {
         .attr("x", 9)
         .attr("dy", ".35em")
         .attr("transform", "rotate(90)")
-        .style("text-anchor", "start");
+        .style("text-anchor", "start")
+        .style("font-size","10px");
 
     // Add the Y Axis
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
         .append("text")
-        .attr("transform", "rotate(-90)")
+        .attr("transform", "rotate(0)")
         .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Deviation in minutes");
+        .attr("x",5)
+        .attr("dy", ".0em")
+        .style("text-anchor", "left")
+        .text("Deviation in minutes")
+        .style("font-size","10px");
 
   
 

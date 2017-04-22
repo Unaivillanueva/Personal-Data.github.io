@@ -1,5 +1,5 @@
-var w = 500,
-	h = 500;
+var w = 350,
+	h = 350;
 
 var colorscale = d3.scale.category10();
 
@@ -10,22 +10,22 @@ var LegendOptions = ['Breakfast','Lunch','Dinner'];
 var d = [
 		  [
 			{axis:"Alone",value:0.59},
-			{axis:"+3 People",value:0.1},
-			{axis:"3 People",value:0.1},
-			{axis:"2 People",value:0.2},
-			{axis:"1 Person",value:0.5},			
+			{axis:"Per.3+",value:0.1},
+			{axis:"3 Per.",value:0.1},
+			{axis:"2 Per.",value:0.2},
+			{axis:"1 Per.",value:0.5},			
 		  ],[
 			{axis:"Alone",value:0.8},
-			{axis:"+3 People",value:0.6},
-			{axis:"3 People",value:0.2},
-			{axis:"2 People",value:0.64},
-			{axis:"1 Person",value:0.74},
+			{axis:"Per.3+",value:0.6},
+			{axis:"3 Per.",value:0.2},
+			{axis:"2 Per.",value:0.64},
+			{axis:"1 Per.",value:0.74},
 		  ],[
 			{axis:"Alone",value:0.6},
-			{axis:"+3 People",value:0.8},
-			{axis:"3 People",value:0.7},
-			{axis:"2 People",value:0.69},
-			{axis:"1 Person",value:0.7},
+			{axis:"Per.3+",value:0.8},
+			{axis:"3 Per.",value:0.7},
+			{axis:"2 Per.",value:0.69},
+			{axis:"1 Per.",value:0.7},
 		  ]
 		];
 
@@ -35,7 +35,7 @@ var mycfg = {
   h: h,
   maxValue: 1,
   levels: 6,
-  ExtraWidthX: 300
+  ExtraWidthX: 30
 }
 
 //Call function to draw the Radar chart
@@ -51,16 +51,15 @@ var svg = d3.select("#v2")
 	.append('svg')
 	.attr("width", '100%')
     .attr("height", '100%')
-    
     .attr('viewBox','0 0 '+Math.min(w,h)+' '+Math.min(w,h))
     .attr('preserveAspectRatio','xMinYMin')
-	.attr("transform", "translate(" + Math.min(w,h) / 2 + "," + Math.min(w,h) / 2 + ")");
+	.attr("transform", "translate(" + Math.min(w,h) / 10 + "," + Math.min(w,h) / 2 + ")");
 
 //Create the title for the legend
 var text = svg.append("text")
 	.attr("class", "title")
 	.attr('transform', 'translate(90,0)') 
-	.attr("x", w - 280)
+	.attr("x", -30)
 	.attr("y", 10)
 	.attr("font-size", "10px")
 	.attr("fill", "#404040")
@@ -78,7 +77,7 @@ var legend = svg.append("g")
 	  .data(LegendOptions)
 	  .enter()
 	  .append("rect")
-	  .attr("x", w - 110)
+	  .attr("x", 180)
 	  .attr("y", function(d, i){ return i * 20;})
 	  .attr("width", 9)
 	  .attr("height", 9)
@@ -89,7 +88,7 @@ var legend = svg.append("g")
 	  .data(LegendOptions)
 	  .enter()
 	  .append("text")
-	  .attr("x", w - 95)
+	  .attr("x", 190)
 	  .attr("y", function(d, i){ return i * 20 + 9;})
 	  .attr("font-size", "10px")
 	  .attr("fill", "#737373")
