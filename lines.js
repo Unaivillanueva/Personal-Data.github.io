@@ -37,11 +37,12 @@ d3.csv("Deviation.csv", function(error, data) {
 	// Adds the svg canvas
 	var svg = d3.select("#v1")
 	    .append("svg")
-	        .attr("width", width + margin.left + margin.right)
-	        .attr("height", height + margin.top + margin.bottom)
+	    .attr("width", '100%')
+	    .attr("height", '100%')
+        .attr('viewBox','0 0 '+Math.min(width,height)+' '+Math.min(width,height))
+        .attr('preserveAspectRatio','xMinYMin')
 	    .append("g")
-	        .attr("transform", 
-	              "translate(" + margin.left + "," + margin.top + ")");
+	    .attr("transform", "translate(" + Math.min(width,height) /13 + "," + Math.min(width,height) / 14 + ")");
 
 
     // Scale the range of the data
@@ -63,7 +64,7 @@ d3.csv("Deviation.csv", function(error, data) {
         .attr("y", 0)
         .attr("x", 9)
         .attr("dy", ".35em")
-        .attr("transform", "rotate(45)")
+        .attr("transform", "rotate(90)")
         .style("text-anchor", "start");
 
     // Add the Y Axis

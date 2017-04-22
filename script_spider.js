@@ -49,16 +49,20 @@ RadarChart.draw("#v2", d, mycfg);
 var svg = d3.select("#v2")
 	.selectAll('svg')
 	.append('svg')
-	.attr("width", w+300)
-	.attr("height", h)
+	.attr("width", '100%')
+    .attr("height", '100%')
+    
+    .attr('viewBox','0 0 '+Math.min(w,h)+' '+Math.min(w,h))
+    .attr('preserveAspectRatio','xMinYMin')
+	.attr("transform", "translate(" + Math.min(w,h) / 2 + "," + Math.min(w,h) / 2 + ")");
 
 //Create the title for the legend
 var text = svg.append("text")
 	.attr("class", "title")
 	.attr('transform', 'translate(90,0)') 
-	.attr("x", w - 80)
+	.attr("x", w - 280)
 	.attr("y", 10)
-	.attr("font-size", "12px")
+	.attr("font-size", "10px")
 	.attr("fill", "#404040")
 	.text("Average mood (from 0 to 100% happiness) - company");
 		
@@ -74,10 +78,10 @@ var legend = svg.append("g")
 	  .data(LegendOptions)
 	  .enter()
 	  .append("rect")
-	  .attr("x", w - 65)
+	  .attr("x", w - 110)
 	  .attr("y", function(d, i){ return i * 20;})
-	  .attr("width", 10)
-	  .attr("height", 10)
+	  .attr("width", 9)
+	  .attr("height", 9)
 	  .style("fill", function(d, i){ return colorscale(i);})
 	  ;
 	//Create text next to squares
@@ -85,9 +89,9 @@ var legend = svg.append("g")
 	  .data(LegendOptions)
 	  .enter()
 	  .append("text")
-	  .attr("x", w - 52)
+	  .attr("x", w - 95)
 	  .attr("y", function(d, i){ return i * 20 + 9;})
-	  .attr("font-size", "11px")
+	  .attr("font-size", "10px")
 	  .attr("fill", "#737373")
 	  .text(function(d) { return d; })
 	  ;	

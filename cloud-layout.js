@@ -24,6 +24,7 @@ d3.csv("words.csv", function(data) {
 
 function draw(words) {
 d3.select("#v4").append("svg")
+    .classed("svg-container", true) //container class to make it responsive
     .attr("width", w)
     .attr("height", h)
     .append("g")
@@ -38,7 +39,12 @@ d3.select("#v4").append("svg")
     .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
     })
-    .text(function(d) { return d.text; });
+    .text(function(d) { return d.text; })
+    //responsive SVG needs these 2 attributes and no width and height attr
+   .attr("preserveAspectRatio", "xMinYMin meet")
+   .attr("viewBox", "0 0 600 400")
+   //class to make it responsive
+   .classed("svg-content-responsive", true); 
 }           
 
 (function(exports) {

@@ -1,6 +1,6 @@
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
-    width = 650,
-    height = 450;
+    width = 620,
+    height = 550;
 
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -19,16 +19,18 @@ var yAxis = d3.svg.axis()
 
 var tip = d3.tip()
   .attr('class', 'd3-tip')
-  .offset([-10, 0])
+  .offset([500, 0])
   .html(function(d) {
     return "<strong>Mood:</strong> <span style='color:red'>" + d.mood+ "</span>";
   })
 
 var svg = d3.select("#v3").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", '100%')
+    .attr("height", '100%')
+    .attr('viewBox','0 0 '+Math.max(width,height)+' '+Math.max(width,height))
+    .attr('preserveAspectRatio','xMinYMin')
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + Math.min(width,height) / 20 + "," + Math.min(width,height) / 15 + ")");
 
 svg.call(tip);
 
@@ -41,8 +43,9 @@ d3.tsv("mood-dev.tsv", type, function(error, data) {
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
       .append("text")
-       .attr("transform", "translate(0," + width + ")")
-      .style("text-anchor","left")
+       .attr("transform", "translate(0," + 0 + ")")
+      .style("text-anchor","right")
+      .attr("x",620)
       .text("Deviation (min)");
 
   svg.append("g")

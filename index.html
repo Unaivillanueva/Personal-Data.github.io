@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 <script src="RadarChart.js"></script>
 <style>
+
+
 		svg rect:hover {
             fill: deepskyblue;
         }
@@ -67,6 +71,7 @@
 				font-size:17px;
 				padding:10px 25px;
 				text-decoration:none;
+				margin-left: 150px;
                ;}
         #button_lunch {
                 background-color:#ffffff;
@@ -138,6 +143,7 @@
 			letter-spacing: -1px; 
 			line-height: 1; 
 			text-align: center;
+			padding: 20px 5%;
 		}
 
 		h2 { color: #111; 
@@ -149,6 +155,8 @@
 			margin: 100px 0 50px; 
 			width: 750px;
 			text-align: left; 
+			margin-left: 100px;
+			padding: 20px 5%;
 		}
 
 		h3 { color: #111; 
@@ -159,7 +167,8 @@
 			line-height: 32px; 
 			text-align: center;
 			width: 750px;
-			margin-left: 150px;			
+			margin-left: 125px;	
+
 		}
 
 
@@ -171,6 +180,7 @@
 			margin-left: 150px;
 			text-justify: 
 			inter-word; 
+			width: 700px;
 		}
 
 		#chart {
@@ -196,35 +206,149 @@
 		  stroke: steelblue;
 		  stroke-width: 1.5px;
 		}
+
+		#main{
+			background:#FFFFFF; 
+			width:1000px;  
+			margin:0 auto; 
+			border-radius: 20px; 
+			margin-top: 50px; 
+			margin-bottom: 50px;
+			padding-bottom: 100px; 
+			padding-top: 50px;
+
+		}
+
+		#v1{
+			margin-left: 150px; 
+			height: 500px; 
+			width: 650px;
+		}
+		#v2{
+			margin-left: 150px; 
+			margin-top: 50px;
+			height: 500px; 
+			width: 650px;
+		}
+		#v3{
+			margin-left: 150px; 
+			height: 500px; 
+			width: 650px;
+		}
+		#v4{
+			margin-left: 250px; 
+			height: 450px; 
+			width: 650px;
+		}
+
+		/*-----------------MEDIA!!!!----------------------*/
+		@media screen and (max-width: 1030px){
+			h1{
+				font-size: 500%;
+			}
+			#main{
+				float:left;
+				width: 100%;	
+			}
+			h2{
+				font-size: 200%;
+				margin-left: 30px;
+			}
+			h3{
+				font-size: 150%;
+				margin-left: 60px;
+				width: 90%;
+			}
+			p{
+				margin-left: 70px;
+				width: 90%;
+			}
+			#button_brk{
+				margin-left: 70px;
+			}
+			#v1{
+				margin-left: 70px;
+			}
+			#v2{
+				margin-left: 70px;
+			}
+			#v3{
+				margin-left: 70px;
+			}
+			#v4{
+				margin-left: 70px;
+			}
+		}
+
+		@media screen and (max-width: 780px){
+			h1{
+				font-size: 500%;
+			}
+			#main{
+				float:left;
+				width: 100%;	
+			}
+			h2{
+				font-size: 200%;
+				margin-left: 10px;
+			}
+			h3{
+				font-size: 150%;
+				margin-left: 30px;
+				width: 90%;
+			}
+			p{
+				margin-left: 45px;
+				width: 90%;
+			}
+			#button_brk{
+				margin-left: 45px;
+			}
+			#v1{
+				margin-left: 45px;
+				width: 90%;
+			}
+			#v2{
+				margin-left: 45px;
+				width: 90%;
+			}
+			#v3{
+				margin-left: 45px;
+				width: 90%;
+			}
+			#v4{
+				margin-left: 45px;
+				width: 90%;
+			}
+		}
 		
 
 </style>
 <body style="background: linear-gradient(#66CCFF, #00CC66); ">
 <!-- !PAGE CONTENT! -->
-<div id ="main" style="background:#FFFFFF; width:1000px;  margin:0 auto; border-radius: 20px; margin-top: 50px; margin-bottom: 50px;
-						padding-bottom: 50px; padding-top: 50px;">
+<div id ="main" style="">
 
 	<!-- Header -->
 	 <h1>  EatRight.  </h1>
 	 <h3> Hello Mike! In this page you will be able to see the your progress. The intent of the page is to help you understand what's going on with your meals, how well you are following your plan and why you are skipping it (if that's your case). </h3>
 
-	 <h2 style="margin-left: 150px"> Mmm... What have I eaten?</h3>
-	 <div id='v4' style="margin-left: 250px; height: 500px; width: 650px;"></div>
+	 <h2> Mmm... What have I eaten?</h3>
+	 <div id='v4'></div>
 
-	 <h2 style="margin-left: 150px"> Deviation from stablished meal times.</h2>
-	 <p style="width: 700px">In this graph you can see how much you have deviated from your stablished meal times and see if you have improved over the time. You can swith over the different meals to understand what happened individually.</p>
-	    <button id="button_brk" style="margin-left: 150px">Breakfast</button>
+	 <h2> Deviation from stablished meal times.</h2>
+	 <p>In this graph you can see how much you have deviated from your stablished meal times and see if you have improved over the time. You can swith over the different meals to understand what happened individually.</p>
+	    <button id="button_brk">Breakfast</button>
 	    <button id="button_lunch">Lunch</button>
 	    <button id="button_dinner">Dinner</button>
-	    <div id='v1' style="margin-left: 150px; height: 500px; width: 650px;"></div>
+	    <div id='v1'></div>
 
-	<h2 style="margin-left: 150px"> Mood compared with ammount of people you have eaten with.</h3>
-	<p style="width: 700px">Eating with other people could make you feel better about your food and improve your mood towards it. Here you can chech how people has affectd your mood in average.</p>
-	<div id='v2' style="margin-left: 150px; height: 500px; width: 650px;"></div>
+	<h2> Mood compared with ammount of people you have eaten with.</h3>
+	<p>Eating with other people could make you feel better about your food and improve your mood towards it. Here you can chech how people has affectd your mood in average.</p>
+	<div id='v2'></div>
 
-	<h2 style="margin-left: 150px"> Averaged mood compared with devation from goal time.</h3>
-	<p style="width: 700px">It is important to find the right schedule for you; sometimes eating later or sooner might make you feel better than in your stablished times. </p>
-	<div id='v3' style="margin-left: 150px; height: 500px; width: 650px;"></div>
+	<h2> Averaged mood compared with devation from goal time.</h3>
+	<p>It is important to find the right schedule for you; sometimes eating later or sooner might make you feel better than in your stablished times. </p>
+	<div id='v3'></div>
 	    
 
 	<!-- load the d3.js library -->    
