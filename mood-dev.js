@@ -25,7 +25,7 @@ var tip = d3.tip()
   })
 
 var svg = d3.select("#v3").append("svg")
-    .attr("width", '90%')
+    .attr("width", '85%')
     .attr("height", '100%')
     .attr('viewBox','0 0 '+Math.max(width,height)+' '+Math.min(width,height))
     .attr('preserveAspectRatio','xMinYMin')
