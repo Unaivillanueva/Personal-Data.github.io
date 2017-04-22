@@ -1,5 +1,5 @@
 var margin = {top: 5, right: 5, bottom: 5, left: 5},
-    width = 375,
+    width = 355,
     height = 250;
 
 var x = d3.scale.ordinal()
@@ -25,7 +25,7 @@ var tip = d3.tip()
   })
 
 var svg = d3.select("#v3").append("svg")
-    .attr("width", '85%')
+    .attr("width", '80%')
     .attr("height", '100%')
     .attr('viewBox','0 0 '+Math.max(width,height)+' '+Math.min(width,height))
     .attr('preserveAspectRatio','xMinYMin')
