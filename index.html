@@ -2,6 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 <script src="RadarChart.js"></script>
@@ -283,7 +284,7 @@
 			}
 		}
 
-		@media screen and (max-width: 667px){
+		@media screen and (max-width: 370px){
 			h1{
 				font-size: 500%;
 			}
@@ -338,9 +339,9 @@
 				height: 450px;
 			}
 			#v3{
-				margin-left: 30px;
+				margin-left: 10px;
 				width: 90%;
-				height: 400px;
+				height: 250px;
 				width:  350px;
 			}
 			#v4{
@@ -357,36 +358,103 @@
             background: rgba(0, 0, 0, 0.8);
             color: #fff;
             border-radius: 2px;
+            }
+            .nav_div{
+            	 float: left;
+            	 margin-right: 0px;
+            	 width: 50%;
+            	 background-color: #00CC66;
+            }
+            /* Style the links inside the navigation bar */
+			.nav_div a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 10px;
+			    text-decoration: none;
+			    font-size: 16px;
+			    font-weight: bold;
+			    
+			}
+
+			/* Change the color of links on hover */
+			.nav_div a:hover {
+			     background-color: #4dd2ff;
+			}
+
+			/* Add a color to the active/current link */
+			.nav_div a.active {
+			    color: #4dd2ff;
+			}
+			ul{
+				list-style-type: none;
+			    margin: 0;
+			    margin-top: -50px;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: white;
+
+
+			}
+
+
         }
-		}
 		
 
 </style>
 <body style="background: linear-gradient(#66CCFF, #00CC66); ">
+
+
+
 <!-- !PAGE CONTENT! -->
 <div id ="main" style="">
 
-	<!-- Header -->
-	 <h1>  EatRight.  </h1>
-	 <h3> Hello Mike! In this page you will be able to see the your progress. The intent of the page is to help you understand what's going on with your meals, how well you are following your plan and why you are skipping it (if that's your case). </h3>
+<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
 
-	 <h2> Mmm... What have I eaten?</h3>
-	 <div id='v4'></div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="nav_div" style="margin-left: 0px">
+                        <a href="#Deviation">Deviation</a>
+                    </div>
+                    <div class="nav_div">
+                        <a href="#mood_peo">Mood/People</a>
+                    </div>
+                    <div class="nav_div">
+                        <a href="#mood_dev">Mood/Dev</a>
+                    </div>
+                    <div class="nav_div">
+                        <a href="#cloud">Wordcloud</a>
+                    </div>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-	 <h2> Deviation from stablished meal times.</h2>
-	 <p>In this graph you can see how much you have deviated from your stablished meal times and see if you have improved over the time. You can swith over the different meals to understand what happened individually.</p>
+	<!-- Header -->	
+
+	 <h2 class="section-heading" id="Deviation"> Deviation from stablished meal times.</h2>
+	 <p>In this graph you can see how much you have deviated from your stablished meal times.</p>
 	    <button id="button_brk">Breakfast</button>
 	    <button id="button_lunch">Lunch</button>
 	    <button id="button_dinner">Dinner</button>
 	    <div id='v1'></div>
 
-	<h2> Mood compared with ammount of people you have eaten with.</h3>
-	<p>Eating with other people could make you feel better about your food and improve your mood towards it. Here you can chech how people has affectd your mood in average.</p>
+	<h2  class="section-heading" id="mood_peo"> Mood compared with amount of people you have eaten with.</h3>
+	<p>Eating with other people could make you feel better about your food and improve your mood towards it.</p>
 	<div id='v2'></div>
 
-	<h2> Averaged mood compared with devation from goal time.</h3>
-	<p>It is important to find the right schedule for you; sometimes eating later or sooner might make you feel better than in your stablished times. </p>
+	<h2  class="section-heading" id="mood_dev"> Averaged mood compared with devation from goal time.</h3>
+	<p>Eating later or sooner might make you feel better than in your stablished times. </p>
 	<div id='v3'></div>
+
+	<h2 class="section-heading" id="cloud"> Mmm... What have I eaten?</h3>
+	<div id='v4'></div>
 	    
 
 	<!-- load the d3.js library -->    
@@ -400,6 +468,13 @@
 	<script type="text/javascript" src="script_spider.js"></script>
 
 	<script src='mood-dev.js'></script>
+
+	<!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
 
 </div>
 </body>

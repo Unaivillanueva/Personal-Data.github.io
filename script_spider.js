@@ -9,7 +9,7 @@ var LegendOptions = ['Breakfast','Lunch','Dinner'];
 //Data
 var d = [
 		  [
-			{axis:"Alone",value:0.59},
+			{axis:"Alone",value:0.90},
 			{axis:"Per.3+",value:0.1},
 			{axis:"3 Per.",value:0.1},
 			{axis:"2 Per.",value:0.2},
