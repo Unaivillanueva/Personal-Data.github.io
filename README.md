@@ -1,2 +1,2 @@
 URL:
-https://socialdataassignment2.github.io/Personal-Data.github.io/
+https://unaivillanueva.github.io/Personal-Data.github.io/
